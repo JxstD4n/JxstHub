@@ -27,4 +27,4 @@ if game.Place.Id == (9498006165) then
     --if game.PlaceId == () then
     --loadstring(game:HttpGet("", true))()
     --game.workspace.JxstD4n.HumanoidRootPart.CFrame = game.Workspace.Part.CFrame
-end
+    end
