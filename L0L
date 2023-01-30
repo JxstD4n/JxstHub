@@ -1,4 +1,4 @@
-if game.PlaceId == (9498006165) then
+if(game.PlaceId == 9498006165) then
     local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
     local Window = Library.CreateLib("JxstHub", "Synapse")
     -- MAIN
@@ -27,4 +27,4 @@ if game.PlaceId == (9498006165) then
     --if game.PlaceId == () then
     --loadstring(game:HttpGet("", true))()
     --game.workspace.JxstD4n.HumanoidRootPart.CFrame = game.Workspace.Part.CFrame
-    end
+end
