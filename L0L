@@ -1,3 +1,3 @@
 if(game.PlaceId == 9498006165) then
-https://raw.githubusercontent.com/JxstD4n/JxstHubs/main/Tapping%20Simulator
+loadstring(game:HttpGet("https://raw.githubusercontent.com/JxstD4n/JxstHubs/main/Tapping%20Simulator", true))()
 end
