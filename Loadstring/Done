@@ -1,1 +1,2 @@
-
+if(game.PlaceId == 6766156863) then
+loadstring(game:HttpGet("", true))()
