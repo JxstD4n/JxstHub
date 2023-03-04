@@ -17,10 +17,9 @@ Section3:NewKeybind("Toggle UI", "makes the gui invisible, press again to make i
 	Library:ToggleUI()
 end)
 
-
 local Tab3 = Window:NewTab("Teleport")
 local Section4 = Tab3:NewSection("Win")
-Section3:NewButton("Finish", "Teleport you to finish on click", function()
+Section4:NewButton("Finish", "Teleport you to finish on click", function()
 	local LocalPlayer = game.Players.LocalPlayer.Character.HumanoidRootPart
 	local PartName = "Finish"
 	local Part = game:GetService("Workspace"):FindFirstChild(PartName, true)
@@ -32,7 +31,7 @@ Section3:NewButton("Finish", "Teleport you to finish on click", function()
 	end	
 end)
 local Section5 = Tab3:NewSection("Statue")
-Section4:NewButton("Bag", "Teleport you to bag on click", function()
+Section5:NewButton("Bag", "Teleport you to bag on click", function()
 	local LocalPlayer = game.Players.LocalPlayer.Character.HumanoidRootPart
 	local ModelName = "Bag"
 	local Model = game:GetService("Workspace"):FindFirstChild(ModelName, true)
@@ -46,7 +45,7 @@ Section4:NewButton("Bag", "Teleport you to bag on click", function()
 		end
 	end	
 end)
-Section6:NewButton("Safety Statue", "Teleport you to safety statue on click", function()
+Section5:NewButton("Safety Statue", "Teleport you to safety statue on click", function()
 	local LocalPlayer = game.Players.LocalPlayer.Character.HumanoidRootPart
 	local ModelName = "SafetyStatue"
 	local Model = game:GetService("Workspace"):FindFirstChild(ModelName, true)
