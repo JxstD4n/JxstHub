@@ -6,11 +6,11 @@ local Section1 = Tab1:NewSection("Section Name")
 
 local Tab2 = Window:NewTab("Player")
 local Section2 = Tab2:NewSection("Speed")
-Section:NewTextBox("Character speed", "Type in a number of speed you want to have", function(txt)
+Section2:NewTextBox("Character speed", "Type in a number of speed you want to have", function(txt)
 	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = txt
 end)
 local Section3 = Tab2:NewSection("Others")
-Section:NewButton("Infinite Yield", "Just infinte yield", function()
+Section3:NewButton("Infinite Yield", "Just infinte yield", function()
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
 end)
 Section3:NewKeybind("Toggle UI", "makes the gui invisible, press again to make it visible", Enum.KeyCode.RightAlt, function()
