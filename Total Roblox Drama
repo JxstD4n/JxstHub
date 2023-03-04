@@ -5,10 +5,21 @@ local Tab1 = Window:NewTab("Main")
 local Section1 = Tab1:NewSection("Section Name")
 
 local Tab2 = Window:NewTab("Player")
-local Section2 = Tab2:NewSection("Section Name")
+local Section2 = Tab2:NewSection("Speed")
+Section:NewTextBox("Character speed", "Type in a number of speed you want to have", function(txt)
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = txt
+end)
+local Section3 = Tab2:NewSection("Others")
+Section:NewButton("Infinite Yield", "Just infinte yield", function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+Section3:NewKeybind("Toggle UI", "makes the gui invisible, press again to make it visible", Enum.KeyCode.RightAlt, function()
+	Library:ToggleUI()
+end)
+
 
 local Tab3 = Window:NewTab("Teleport")
-local Section3 = Tab3:NewSection("Win")
+local Section4 = Tab3:NewSection("Win")
 Section3:NewButton("Finish", "Teleport you to finish on click", function()
 	local LocalPlayer = game.Players.LocalPlayer.Character.HumanoidRootPart
 	local PartName = "Finish"
@@ -20,7 +31,7 @@ Section3:NewButton("Finish", "Teleport you to finish on click", function()
 		tween:Play()
 	end	
 end)
-local Section4 = Tab3:NewSection("Statue")
+local Section5 = Tab3:NewSection("Statue")
 Section4:NewButton("Bag", "Teleport you to bag on click", function()
 	local LocalPlayer = game.Players.LocalPlayer.Character.HumanoidRootPart
 	local ModelName = "Bag"
@@ -35,7 +46,7 @@ Section4:NewButton("Bag", "Teleport you to bag on click", function()
 		end
 	end	
 end)
-Section4:NewButton("Safety Statue", "Teleport you to safety statue on click", function()
+Section6:NewButton("Safety Statue", "Teleport you to safety statue on click", function()
 	local LocalPlayer = game.Players.LocalPlayer.Character.HumanoidRootPart
 	local ModelName = "SafetyStatue"
 	local Model = game:GetService("Workspace"):FindFirstChild(ModelName, true)
