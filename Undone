@@ -1,1 +1,190 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("JxstHub", "Synapse")
 
+----------------------------------------------------------------------------------------------------------------------------------------------------
+local Tab1 = Window:NewTab("Squid Game")
+local Section1 = Tab1:NewSection("Main")
+Section1:NewButton("Green Light", "Teleport you to safe zone", function()
+	local LocalPlayer = game.Players.LocalPlayer.Character.HumanoidRootPart
+	local Part = game:GetService("Workspace").Game1.SafeZone
+	local TweenService = game:GetService("TweenService")
+	local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out, 0, false, 0)
+	local tween = TweenService:Create(LocalPlayer, tweenInfo, { CFrame = Part.CFrame })
+	tween:Play()
+end)
+Section1:NewButton("Glass Jump", "Teleport you to the end", function()
+	local LocalPlayer = game.Players.LocalPlayer.Character.HumanoidRootPart
+	local Part = game:GetService("Workspace").Game3.Win
+	local TweenService = game:GetService("TweenService")
+	local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out, 0, false, 0)
+	local tween = TweenService:Create(LocalPlayer, tweenInfo, { CFrame = Part.CFrame })
+	tween:Play()
+end)
+local Section2 = Tab1:NewSection("Misc")
+Section2:NewButton("Ctrl Delete", "Makes you delete objects while holding ctrl and clicking on them", function()
+    local Plr = game:GetService("Players").LocalPlayer
+    local Mouse = Plr:GetMouse()
+    Mouse.Button1Down:connect(function()
+		if not game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl) then return end
+		if not Mouse.Target then return end
+		Mouse.Target:Destroy()
+    end)
+end)
+Section2:NewButton("Alt Teleport", "Teleport you to position that your cursor is pointed on while holding alt", function()
+    local UIS = game:GetService("UserInputService")
+    local Player = game.Players.LocalPlayer
+    local Mouse = Player:GetMouse()
+    function GetCharacter()
+        return game.Players.LocalPlayer.Character
+    end
+    function Teleport(pos)
+        local Char = GetCharacter()
+        if Char then
+            Char:MoveTo(pos)
+        end
+    end
+    UIS.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 and UIS:IsKeyDown(Enum.KeyCode.LeftAlt) then
+            Teleport(Mouse.Hit.p)
+        end
+    end)
+end)
+Section2:NewSlider("Walkspeed", "Changes how fast you walk.", 250, 16, function(s)
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+Section2:NewToggle("Max Zoom Out", "Deletes your current zoom distance and make it infinite", function(state)
+	if state then
+		game:GetService("Players").LocalPlayer.CameraMaxZoomDistance = math.huge
+	else
+		game:GetService("Players").LocalPlayer.CameraMaxZoomDistance = 25
+	end
+end)
+Section2:NewToggle("Infinite Jump", "Makes you jump as many times as you want without waiting", function(state)
+	if state then
+		InfiniteJumpEnabled = true
+		game:GetService("UserInputService").JumpRequest:connect(function()
+			if InfiniteJumpEnabled then
+				game:GetService("Players").LocalPlayer.Character
+					:FindFirstChildOfClass("Humanoid")
+					:ChangeState("Jumping")
+			end
+		end)
+	else
+		InfiniteJumpEnabled = false
+		game:GetService("UserInputService").JumpRequest:connect(function()
+			if InfiniteJumpEnabled then
+				game:GetService("Players").LocalPlayer.Character
+					:FindFirstChildOfClass("Humanoid")
+					:ChangeState("Jumping")
+			end
+		end)
+	end
+end)
+Section2:NewKeybind("Toggle UI", "Toggles your UI", Enum.KeyCode.E, function()
+	Library:ToggleUI()
+end)
+----------------------------------------------------------------------------------------------------------------------------------------------------
+local Tab2 = Window:NewTab("Total Roblox Drama")
+local Section3 = Tab2:NewSection("Main")
+Section3:NewButton("Finish", "Teleport you to finish on click", function()
+	local LocalPlayer = game.Players.LocalPlayer.Character.HumanoidRootPart
+	local PartName = "Finish"
+	local Part = game:GetService("Workspace"):FindFirstChild(PartName, true)
+	if Part then
+		local TweenService = game:GetService("TweenService")
+		local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out, 0, false, 0)
+		local tween = TweenService:Create(LocalPlayer, tweenInfo, { CFrame = Part.CFrame })
+		tween:Play()
+	end	
+end)
+Section3:NewButton("Bag", "Teleport you to bag on click", function()
+	local LocalPlayer = game.Players.LocalPlayer.Character.HumanoidRootPart
+	local ModelName = "Bag"
+	local Model = game:GetService("Workspace"):FindFirstChild(ModelName, true)
+	if Model and Model:IsA("Model") then
+		local RootPart = Model:FindFirstChildWhichIsA("BasePart")
+		if RootPart then
+			local TweenService = game:GetService("TweenService")
+			local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out, 0, false, 0)
+			local tween = TweenService:Create(LocalPlayer, tweenInfo, { CFrame = RootPart.CFrame })
+			tween:Play()
+		end
+	end	
+end)
+Section3:NewButton("Safety Statue", "Teleport you to safety statue on click", function()
+	local LocalPlayer = game.Players.LocalPlayer.Character.HumanoidRootPart
+	local ModelName = "SafetyStatue"
+	local Model = game:GetService("Workspace"):FindFirstChild(ModelName, true)
+	if Model and Model:IsA("Model") then
+		local RootPart = Model:FindFirstChildWhichIsA("BasePart")
+		if RootPart then
+			local TweenService = game:GetService("TweenService")
+			local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out, 0, false, 0)
+			local tween = TweenService:Create(LocalPlayer, tweenInfo, { CFrame = RootPart.CFrame })
+			tween:Play()
+		end
+	end	
+end)
+local Section4 = Tab2:NewSection("Misc")
+Section4:NewButton("Ctrl Delete", "Makes you delete objects while holding ctrl and clicking on them", function()
+    local Plr = game:GetService("Players").LocalPlayer
+    local Mouse = Plr:GetMouse()
+    Mouse.Button1Down:connect(function()
+		if not game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl) then return end
+		if not Mouse.Target then return end
+		Mouse.Target:Destroy()
+    end)
+end)
+Section4:NewButton("Alt Teleport", "Teleport you to position that your cursor is pointed on while holding alt", function()
+    local UIS = game:GetService("UserInputService")
+    local Player = game.Players.LocalPlayer
+    local Mouse = Player:GetMouse()
+    function GetCharacter()
+        return game.Players.LocalPlayer.Character
+    end
+    function Teleport(pos)
+        local Char = GetCharacter()
+        if Char then
+            Char:MoveTo(pos)
+        end
+    end
+    UIS.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 and UIS:IsKeyDown(Enum.KeyCode.LeftAlt) then
+            Teleport(Mouse.Hit.p)
+        end
+    end)
+end)
+Section4:NewSlider("Walkspeed", "Changes how fast you walk.", 250, 16, function(s)
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+Section4:NewToggle("Max Zoom Out", "Deletes your current zoom distance and make it infinite", function(state)
+	if state then
+		game:GetService("Players").LocalPlayer.CameraMaxZoomDistance = math.huge
+	else
+		game:GetService("Players").LocalPlayer.CameraMaxZoomDistance = 25
+	end
+end)
+Section4:NewToggle("Infinite Jump", "Makes you jump as many times as you want without waiting", function(state)
+	if state then
+		InfiniteJumpEnabled = true
+		game:GetService("UserInputService").JumpRequest:connect(function()
+			if InfiniteJumpEnabled then
+				game:GetService("Players").LocalPlayer.Character
+					:FindFirstChildOfClass("Humanoid")
+					:ChangeState("Jumping")
+			end
+		end)
+	else
+		InfiniteJumpEnabled = false
+		game:GetService("UserInputService").JumpRequest:connect(function()
+			if InfiniteJumpEnabled then
+				game:GetService("Players").LocalPlayer.Character
+					:FindFirstChildOfClass("Humanoid")
+					:ChangeState("Jumping")
+			end
+		end)
+	end
+end)
+Section4:NewKeybind("Toggle UI", "Toggles your UI", Enum.KeyCode.E, function()
+	Library:ToggleUI()
+end)
