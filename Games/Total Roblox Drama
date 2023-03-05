@@ -25,7 +25,7 @@ Section4:NewButton("Finish", "Teleport you to finish on click", function()
 	local Part = game:GetService("Workspace"):FindFirstChild(PartName, true)
 	if Part then
 		local TweenService = game:GetService("TweenService")
-		local tweenInfo = TweenInfo.new(3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out, 0, false, 0)
+		local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out, 0, false, 0)
 		local tween = TweenService:Create(LocalPlayer, tweenInfo, { CFrame = Part.CFrame })
 		tween:Play()
 	end	
@@ -39,7 +39,7 @@ Section5:NewButton("Bag", "Teleport you to bag on click", function()
 		local RootPart = Model:FindFirstChildWhichIsA("BasePart")
 		if RootPart then
 			local TweenService = game:GetService("TweenService")
-			local tweenInfo = TweenInfo.new(3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out, 0, false, 0)
+			local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out, 0, false, 0)
 			local tween = TweenService:Create(LocalPlayer, tweenInfo, { CFrame = RootPart.CFrame })
 			tween:Play()
 		end
@@ -53,7 +53,7 @@ Section5:NewButton("Safety Statue", "Teleport you to safety statue on click", fu
 		local RootPart = Model:FindFirstChildWhichIsA("BasePart")
 		if RootPart then
 			local TweenService = game:GetService("TweenService")
-			local tweenInfo = TweenInfo.new(3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out, 0, false, 0)
+			local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out, 0, false, 0)
 			local tween = TweenService:Create(LocalPlayer, tweenInfo, { CFrame = RootPart.CFrame })
 			tween:Play()
 		end
